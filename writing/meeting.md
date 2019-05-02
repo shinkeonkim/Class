@@ -54,11 +54,3 @@
 3. 결론
     - 로드맵 요약
     - 주제문장과 관련된 내용 제시
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
