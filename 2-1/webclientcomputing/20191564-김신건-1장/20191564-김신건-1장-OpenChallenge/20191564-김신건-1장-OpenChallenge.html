@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            나의 소개    
+        </title>
+
+        <style>
+            body {
+                background-color: rgb(204, 233, 233);
+            }
+            h1 {
+                text-align: center;
+            }
+            hr {
+                width: 80%;
+                border: solid 3px;
+                color: rgb(72, 72, 129);
+            }
+            
+            div.content {
+                float: right;
+                width: 80%;
+                margin-top: 30px;
+            }
+
+            img#profile {
+                vertical-align: middle;
+                float: left;
+                width: 30%;
+                margin-right: 20px;
+            }
+            article {
+                vertical-align: middle;
+                width: 70%;
+                float: left;
+            }
+            .article-content {
+                width: 80%;
+                font-size: 20px;
+            }
+            span {
+                font-size:24px;
+                color:blueviolet;
+            }
+        </style>
+
+        <script>
+            function show() {
+                document.getElementById("profile").src = "profile.jpg"
+            }
+            function hide() {
+                document.getElementById("profile").src = ""
+            }
+
+        </script>
+
+    </head>
+    
+    <body>
+        <div class = "header">
+            <h1 onmouseover = "show()" onmouseout="hide()">
+                김신건
+            </h1>
+        </div>
+        <hr>
+        <div class="content">
+            <img src="" id = "profile">            
+            <div class="article">
+                <div class="article-title">
+                    <h2>소개글</h2>
+                </div>
+
+                <div class = "article-content"> 
+                    국민대학교 19학번 <span>김신건</span>입니다.
+                    국민대학교 소프트웨어학과에 소프트웨어 특기자 전형으로 입학하였고, 
+                    현재 <span>KPSC</span>(알고리즘 문제 해결 동아리)와 <span>두음</span>(소프트웨어 교육 동아리)에서 활동하고 있습니다.
+                    평소에 백준 온라인 저지나 Codeforce등의 온라인 저지 사이트(문제 해결 사이트)의 문제를 푸는 것을 즐겨합니다.
+                </div>
+            </div>
+
+            <div class="article" style="margin-top: 150px">
+                <div class="article-title">
+                    <h2>프로필 목록</h2>
+                </div>
+                <div class = "article-content"> 
+                    <img src = "GitHub-Mark-32px.png"> Github : <a href = "https://github.com/shinkeonkim">shinkeonkim</a>
+                    <br>
+                    <img src = "yt_logo_rgb_dark.png" width="40px"> Youtube : <a href = "https://www.youtube.com/channel/UCxnPVTZAKfgup-srzKe7ekQ">shinkeonkim</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
