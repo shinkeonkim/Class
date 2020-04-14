@@ -1,0 +1,30 @@
+body {
+    background-color: aliceblue;
+}
+header {
+    border-bottom: solid 1px;
+}
+ul {
+    border: dotted 1px;
+}
+h1 {
+    text-align: center;
+    color: brown;
+}
+h2 {
+    color: blue;
+    text-shadow: 2px 2px skyblue;
+}
+a {
+    text-decoration: none;
+}
+p {
+    font-family: 휴먼편지체;
+    font-size: 1em;
+    text-indent: 1em;
+}
+footer {
+    height: 100px;
+    background-color: orange;
+    border-radius: 15px;
+}

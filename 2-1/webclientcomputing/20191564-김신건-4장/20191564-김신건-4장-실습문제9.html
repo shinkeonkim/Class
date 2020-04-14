@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text-shadow와 box-shadow</title>
+    <style>
+        h2 {
+            color: yellow;
+            text-shadow: 2px 2px blue;
+            text-align: center;
+        }
+        img {
+            width: 150px;
+        }
+        table {
+            margin: auto;
+        }
+        td:hover {
+            box-shadow: 3px 3px 3px gray,
+                        0 0 25px white,
+                        0 0 5px  darkgray;
+        }
+    </style>
+</head>
+<body>
+    <h2>
+        Most Visted Pages
+    </h2>
+
+    <hr>
+
+    <table>
+        <tr>
+            <td><img src="./media/naver.png"></td>
+            <td><img src="./media/chosun.png"></td>
+            <td><img src="./media/amazon.png"></td>
+        </tr>
+    </table>
+</body>
+</html>

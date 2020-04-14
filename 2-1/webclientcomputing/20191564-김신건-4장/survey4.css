@@ -1,0 +1,27 @@
+body {
+    background-color: aliceblue;
+}
+h1 {
+    text-align: center;
+    color: brown;
+}
+
+form {
+    color: blue;
+    font-size: 20px
+}
+
+form > label {
+    color: black;
+    font-size: 15px;
+    font-family: 휴먼편지체;
+}
+
+section {
+    background-color: pink;
+}
+
+footer {
+    background-color: orange;
+    border-radius: 15px;
+}
