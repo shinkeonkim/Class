@@ -1,0 +1,24 @@
+body {
+    background-color: aliceblue;
+    margin: 0px;
+}
+header {
+    margin: 0px;
+    background-color: yellow;
+}
+h1 {
+    margin: 0px;
+    text-align: center;
+}
+
+section {
+    margin: 20px;
+}
+
+section {
+    background-color: pink;
+}
+
+footer {
+    background-color: purple;
+}

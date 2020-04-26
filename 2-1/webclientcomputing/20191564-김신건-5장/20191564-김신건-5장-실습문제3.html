@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오디오 재생 리스트</title>
+    <style>
+        th {
+            text-decoration: none;
+            border: 2px solid greenyellow;
+        }
+        span {
+            font-weight: bold;
+        }
+
+        button:hover {
+            color: magenta;
+        }
+        
+    </style>
+    <script>
+        var audio = new Audio("./media/Aegukga.mp3");
+        // var audio2 = new Audio("./media/MoonGlow.mp3");
+        // var audio3 = new Audio("./media/EmbraceableYou.mp3");
+        
+        function playAudio(a) {
+            audio = new Audio("./media/"+a+".mp3");
+            audio.play();
+        }
+
+        function pauseAudio() {
+            audio.pause();
+        }
+    </script>
+</head>
+<body>
+    <h3>오디오 재생 리스트</h3>
+    <hr>
+    <table>
+        <tbody>
+            <tr>
+                <th>
+                    1
+                </th>
+                <td style="border-bottom: 1px solid black; width: 150px">
+                    <span>
+                        애국가
+                    </span>
+                </td>
+                <td>
+                    <button class = "play" onclick="playAudio('Aegukga')">
+                        재생
+                    </button>
+                    <button class = "stop" onclick="pauseAudio()">
+                        중지
+                    </button>
+                </td>
+            </tr>
+            
+            <tr>
+                <th>
+                    2
+                </th>
+                <td style="border-bottom: 1px solid black; width: 150px">
+                    <span>
+                        MoonGlow
+                    </span>
+                </td>
+                <td>
+                    <button class = "play" onclick="playAudio('MoonGlow')">
+                        재생
+                    </button>
+                    <button class = "stop" onclick="pauseAudio()">
+                        중지
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    3
+                </th>
+                <td style="border-bottom: 1px solid black; width: 150px">
+                    <span>
+                        Embraceable You
+                    </span>
+                </td>
+                <td>
+                    <button class = "play" onclick="playAudio('EmbraceableYou')">
+                        재생
+                    </button>
+                    <button class = "stop" onclick="pauseAudio()">
+                        중지
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
