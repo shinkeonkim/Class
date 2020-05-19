@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>큰 자리수와 낮은 자리수 같은지 비교</title>
+</head>
+<body>
+    <h3>큰 자리수와 낮은 자리수 같은지 비교</h3>
+    <hr>
+    <script>
+        var N = prompt("숫자 입력")
+        n = parseInt(N)
+        last = n % 10
+        first = n % 10
+        while(n > 0) {        
+            first = n % 10
+            n = Math.floor(n/10);
+        }
+        if(first == last) {
+            document.write(N,": 같음")
+        }
+        else {
+            document.write(N, ": 다름")
+        }
+    </script>
+</body>
+</html>
