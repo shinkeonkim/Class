@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 단어장 만들기</title>
+</head>
+<body>
+    
+    <h3>
+        나의 단어장 만들기
+    </h3>
+
+    <hr>
+
+    <form action="">
+        영어: <input type="text" name="eng" id="eng"> <br>
+        한글: <input type="text" name="kor" id="kor"> <br>
+        <br>    
+        <input type="button" value="단어 저장" onclick="save()">
+        <input type="button" value="영단어 검색" onclick="search()">
+        <input type="button" value="단어 삭제" onclick="del()">
+        <input type="button" value="전체 보기" onclick = "show()">
+    </form>
+
+
+    <script>
+        var eng =document.getElementById("eng");
+        var kor =document.getElementById("kor");
+
+        function save() {
+            if (!window.localStorage) {
+                alert("로컬 스토리지를 지원하지 않습니다.");
+                return;
+            }
+
+            engWord = eng.value;
+            korWord = kor.value;
+
+            if(localStorage.getItem(engWord) != null) {
+                if(confirm(engWord + "이/가 이미 있습니다. 수정하시겠습니까?")) {
+                    localStorage.setItem(engWord, korWord);
+                }
+            }
+            else {
+                localStorage.setItem(engWord, korWord);
+                alert("저장되었습니다.")
+            }
+        }
+        function search() {
+            if (!window.localStorage) {
+                alert("로컬 스토리지를 지원하지 않습니다.");
+                return;
+            }
+            
+            engWord = eng.value;
+
+            var k = localStorage.getItem(engWord);
+            if(k == null) {
+                alert(engWord + "은/는 없는 단어입니다.");
+                kor.value = "";
+            }
+            else {
+                kor.value = k;
+            }
+
+        }
+        function del() {
+            if (!window.localStorage) {
+                alert("로컬 스토리지를 지원하지 않습니다.");
+                return;
+            }
+
+            engWord = eng.value;
+
+            var k = localStorage.getItem(engWord);
+            if(k == null) {
+                alert(engWord + "은/는 없는 단어입니다.");
+                kor.value = "";
+            }
+            else {
+                localStorage.removeItem(engWord);
+                alert(engWord + "은/는 삭제되었습니다.");
+            }
+        }
+        function show() {
+            if (!window.localStorage) {
+                alert("로컬 스토리지를 지원하지 않습니다.");
+                return;
+            }
+            window.open("./word-view.html", "_blank");
+        }
+    </script>
+
+</body>
+</html>

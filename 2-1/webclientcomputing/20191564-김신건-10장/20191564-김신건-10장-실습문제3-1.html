@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사이트 접속</title>
+    <script>
+        function openNewWindow(obj) {
+            win = window.open(obj.options[obj.selectedIndex].value,"PopupWin","height = 400, width = 800");
+        }
+    </script>
+</head>
+<body>
+    <h3>
+        옵션 선택으로 사이트 접속
+    </h3>
+    옵션 선택마다 새 윈도우에 접속합니다.
+    <hr>
+    접속할 사이트
+    <select name="" id="" onchange="openNewWindow(this)">
+        <option value="https://www.naver.com">네이버</option>
+        <option value="https://www.google.com">구글</option>
+        <option value="https://www.oracle.com">오라클</option>
+    </select>
+</body>
+</html>

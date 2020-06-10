@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이름과 학번 입력</title>
+    
+    <script>
+        function save() {
+            var name = document.getElementById("name").value;
+            var number = document.getElementById("number").value;
+            sessionStorage.setItem(name, number);
+        }
+    </script>
+</head>
+<body>
+    <h3>
+        이름과 학번 입력
+    </h3>
+    <hr>
+    <form action="">
+        <label>
+            이름
+            <input type="text" name="" id="name">
+        </label>
+        <br>
+        <label>
+            학번
+            <input type="text" name="" id="number">
+        </label>
+        <input type="button" value="스토리지에 저장" onclick="save()">
+    </form>
+    <a href="./20191564-김신건-12장-실습문제1-2.html" > 이름과 학번 검색 페이지로</a>
+
+</body>
+</html>

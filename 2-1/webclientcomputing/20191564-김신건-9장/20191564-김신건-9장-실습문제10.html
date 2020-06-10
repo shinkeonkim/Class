@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기 만들기</title>
+    <style>
+        input {
+            width: 405px;
+        }
+        table input {
+            width: 100px;
+        }
+    </style>
+
+    <script>
+        function init() {
+            var inputList = document.getElementsByTagName("input");
+            for(var i =0; i <inputList.length; i++) {
+                if(inputList[i].id != "equation") {
+                    inputList[i].addEventListener("click", clk);
+                }
+            }
+        }
+        function clk(e) {
+            var k = e.target.value;
+            var eq = document.getElementById("equation");
+            switch(k) {
+                case '=':
+                    eq.value = eval(eq.value);
+                    break
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    if(eq.value != 0) {
+                        eq.value = eq.value = eq.value + k;
+                    }
+                    else {
+                        eq.value = k;
+                    }
+                    break;
+                case '+':
+                case '-':
+                case '*':
+                case '/':
+                    eq.value = eq.value + k;
+                    break;
+                case 'CE':
+                case 'C':
+                    eq.value = "0";
+                    break;
+                case 'BACK':
+                    eq.value = eq.value.slice(0,-1);
+                    if(eq.value.length == 0) {
+                        eq.value = "0";
+                    }
+            }
+        }
+    </script>
+</head>
+<body onload = init()>
+    <h3>
+        계산기 만들기
+    </h3>
+    <hr>
+    <input type="text" name="" id="equation" value = "0">
+    <table>
+        <tr>
+            <td>
+                <input type="button" value="BACK">
+            </td>
+            <td>
+                <input type="button" value="CE">
+            </td>
+            <td>
+                <input type="button" value="C">
+            </td>
+            <td>
+                <input type="button" value="=">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="7">
+            </td>
+            <td>
+                <input type="button" value="8">
+            </td>
+            <td>
+                <input type="button" value="9">
+            </td>
+            <td>
+                <input type="button" value="/">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="4">
+            </td>
+            <td>
+                <input type="button" value="5">
+            </td>
+            <td>
+                <input type="button" value="6">
+            </td>
+            <td>
+                <input type="button" value="*">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="1">
+            </td>
+            <td>
+                <input type="button" value="2">
+            </td>
+            <td>
+                <input type="button" value="3">
+            </td>
+            <td>
+                <input type="button" value="-">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="0">
+            </td>
+            <td>
+                <input type="button" value="+">
+            </td>
+            <td>
+                <input type="button" value="NONE">
+            </td>
+            <td>
+                <input type="button" value="NONE">
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

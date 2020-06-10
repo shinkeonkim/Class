@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>눈 내리는 샤갈의 마을</title>
+    <style>
+        body {
+            background-image: url('media/snow.jpg');
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        .snow {
+            font-size: 30px;
+            color: white;
+            padding: 0px;
+            margin: 0px;
+            position: absolute;
+        }
+    </style>
+    <script>
+        var x = new Array(30);
+        var y = new Array(30);
+        var speedOfSnow = new Array(30);
+        var speedOfWind = new Array(30);
+        var step = new Array(30);
+        var snowId = new Array(30);
+
+        
+        function snowing() {
+            for(var i = 0; i < 30; i++) {
+                y[i] += speedOfSnow[i];
+                x[i] += Math.cos(speedOfWind[i]);
+
+                if(y[i] >= window.innerHeight - 50) {
+                    x[i] = Math.floor(Math.random() * window.innerWidth - 30);
+                    y[i] = 0;
+                }
+
+                if(x[i] >= window.innerWidth - 30) x[i] = window.innerWidth-30;
+                else if(x[i] < 30) x[i] = 30;
+
+                snowId[i].style.top = y[i] + "px";
+                snowId[i].style.left = x[i] + "px";
+
+                speedOfWind[i] += step[i];
+            }
+            setTimeout("snowing()", 1);
+        }
+    </script>
+</head>
+<body onload="snowing()">
+    <script>
+        makesnow();
+        function makesnow() {
+            for(var i = 0; i < 30; i++) {
+                x[i] = Math.floor(Math.random() * window.innerWidth - 30);
+                y[i] = Math.floor(Math.random() * window.innerHeight - 30);
+                speedOfSnow[i] = 2 + Math.random()*3;
+                speedOfWind[i] = 1 + Math.random();
+                step[i] = Math.random() * 0.1 + 0.05;
+
+                var newSnow = "<div class = 'snow' id = snow" + i + " style = 'top:'" + x[i] + "px; left: " + y[i] + "px'>*</div>";
+                document.write(newSnow);
+
+                snowId[i] = document.getElementById("snow"+i);
+            }
+        }
+
+    </script>
+</body>
+</html>

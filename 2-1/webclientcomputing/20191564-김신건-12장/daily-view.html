@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포스트잇 출력</title>
+</head>
+<body>
+    <h3>
+        포스트잇 출력
+    </h3>
+    <hr>
+    <script>
+        if(!window.localStorage) {
+            alert("로컬스토리지를 지원하지 않습니다.");
+        }
+        else {
+            for(var i = 0; i < localStorage.length; i++) {
+                document.write("<table>");
+                document.write("<tr>");
+                var date = localStorage.key(i);
+                var daily = localStorage.getItem(date);
+                document.write("<td style = 'border: solid 1px yellowgreen;'>" + (i+1) + "</td>");
+                document.write("<th>" + date + "</th>");
+                document.write("<td>" + daily + "</td>");
+                document.write("</tr>"); 
+                document.write("</table>");
+                document.write("<hr>");
+            }
+        }
+
+    </script>
+</body>
+</html>

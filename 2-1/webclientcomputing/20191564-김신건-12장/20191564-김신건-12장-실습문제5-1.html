@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행을 갑시다.</title>
+    <style>
+        .box {
+            display:inline-block; 
+            border: solid 1px yellowgreen; 
+            height: 200px; 
+            width: 200px; 
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h3>
+        여행 갑시다.
+    </h3>
+    <hr>
+
+    <div class = "box">
+        도시를 선택하세요. <br>
+        <select name="city" id="city" onchange="change()">
+            <option value="파리">파리</option>
+            <option value="뉴욕">뉴욕</option>
+            <option value="런던">런던</option>
+        </select>
+    </div>
+
+
+    <div class = "box">
+        음식을 선택하세요. <br>
+        <select name="food" id="food" onchange="change()">
+            <option value="햄버거">햄버거</option>
+            <option value="에스프레소 커피">에스프레소 커피</option>
+            <option value="치즈 케익">치즈 케익</option>
+        </select>
+    </div>
+
+    <script>
+        function change() {
+            var city = document.getElementById("city");
+            city = city.options[city.selectedIndex].value;
+            var food = document.getElementById("food");
+            food = food.options[food.selectedIndex].value;
+            localStorage.setItem("city", city);
+            localStorage.setItem("food", food);
+        }
+        
+    </script>
+</body>
+</html>

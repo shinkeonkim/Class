@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onmouseover과 ommouseout</title>
+    <script>
+        var commetText = ["빨간 자전거를 타고 서울, 대전, 대구, 부산 찍고, 목포. 인천을 거쳐 달린다.",
+        "책을 읽어봅시다.", "달리기, 자전거, 수영", "JS 정복하기"];
+        var commentDiv;
+        function init() {
+            commentDiv = document.getElementById("comment");
+            li = document.getElementsByTagName("li");
+            for(var i = 0; i <li.length; i++) {
+                li[i].addEventListener("mouseover", over, false);
+                li[i].addEventListener("mouseout", out, false);
+            }
+        }
+
+        function over(e) {
+            var k = e.target.id;
+            if(k == "one") place(commetText[0], e);
+            if(k == "two") place(commetText[1], e);
+            if(k == "three") place(commetText[2], e);
+            if(k == "four") place(commetText[3], e);
+        }
+        
+        function place(text, e) {
+            commentDiv.innerHTML = text;
+            commentDiv.style.visibility = "visible";
+            commentDiv.style.left = e.clientX + "px";
+            commentDiv.style.top = e.clientY + "px";
+            commentDiv.style.border = "1px solid yellowgreen";
+            commentDiv.style.background = "aliceblue";
+            commentDiv.style.width = "300px"
+        }
+
+        function out(e) {
+            commentDiv.style.visibility = "hidden";
+        }
+    </script>
+</head>
+<body onload="init()">
+    <h3>
+        아이템에 마우스를 올리면 설명 출력
+    </h3>
+    <hr>
+    <p>
+        여름 방학 때 하고 싶은 것들
+    </p>
+    <ul>
+        <li id = "one">
+            자전거로 대한민국 일주
+        </li>
+        <li id = "two">
+            책 100권 읽기
+        </li>
+        <li id = "three">
+            철인 3종 경기 준비
+        </li>
+        <li id = "four">
+            자바스크립트 정복
+        </li>
+    </ul>
+    <div id="comment" style="position:absolute"></div>
+</body>
+</html>

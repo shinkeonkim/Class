@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div 태그에 시계 만들기</title>
+    <script>
+        var timer;
+        function Timer() {
+            clearTimeout(timer);
+            var d =  new Date();
+            var ret = "";
+            if(d.getHours() > 11) ret += "오후 ";
+            else ret += "오전 ";
+            ret += d.getHours() % 12+":"+d.getMinutes()+":"+d.getSeconds();
+            document.getElementById("div").innerHTML = ret;
+            timer = setTimeout(Timer,1);
+        }
+    </script>
+</head>
+<body onload = "Timer()">
+    <h3>
+        div 태그에 시계 만들기
+    </h3>
+    <hr>
+    <div id = "div" style="border: 1px solid black; width: fit-content;">
+
+    </div>
+</body>
+</html>

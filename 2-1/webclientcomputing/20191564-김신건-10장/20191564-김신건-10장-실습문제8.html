@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>산수를 풀어봅시다.</title>
+
+    <script>
+        var restTime = 10;
+        var counter;
+        var testTimer;
+
+        function showtimer() {
+            restTime-=1;
+            document.getElementById("timer").innerHTML =  restTime;
+        }
+        function test() {
+            clearInterval(counter);
+            var ret = 0;
+            var querys = document.getElementsByClassName("query");
+	        var answers = document.getElementsByClassName("answer");
+            for(i=0; i<querys.length; i++) {
+                var answer = eval(querys[i].innerHTML);
+                var userAns = answers[i].value;
+
+                var chk = true;
+                if(userAns == "" || isNaN(userAns)) {
+                    chk = false;
+                } 
+                else if(parseInt(userAns) != parseInt(answer)) {
+                    chk = false;
+                }
+
+                if(chk) {
+                    ret+=1;
+                }
+                else {
+                    querys[i].style.textDecoration = "line-through"
+                }
+            }
+		    document.getElementById("score").innerHTML = ret;
+        }
+
+        function makeProblem() {
+            restTime = 10;
+            clearInterval(counter);
+            clearTimeout(testTimer);
+            
+            counter = setInterval("showtimer()",1000);
+            testTimer = setTimeout("test()",10000)
+
+		    document.getElementById("score").innerHTML = 0;
+            var querys = document.getElementsByClassName("query");
+	        var answers = document.getElementsByClassName("answer");
+            for(i=0; i<querys.length; i++) {
+                answers[i].value="";
+                var num1 = Math.floor(Math.random()*50);
+                var num2 = Math.floor(Math.random()*50)+1;
+                var operator_number = Math.floor(Math.random()*4);
+                var operator_list ="+-*/";
+                var operator = operator_list[operator_number];
+                querys[i].innerHTML = num1 + operator + num2;
+                querys[i].style.textDecoration = "none"
+        	}
+        }
+    </script>
+</head>
+<body onload="makeProblem()">
+    <h3>
+        산수 문제를 풀어봅시다.
+    </h3>
+    문제는 자동으로 생성되며, 10초가 지나면 자동 채점됩니다.
+    <div>
+        남은시간 <span id = "timer"> </span>
+    </div>
+    <hr>
+
+    <form>
+        <table>
+            <tr>
+                <td class = "query"></td>
+                <td>
+                    <input type="text" class = "answer">
+                </td>
+            </tr>
+    
+            <tr>
+                <td class = "query"></td>
+                <td>
+                    <input type="text" class = "answer">
+                </td>
+            </tr>
+    
+            <tr>
+                <td class = "query"></td>
+                <td>
+                    <input type="text" class = "answer">
+                </td>
+            </tr>
+            
+            <tr>
+                <td class = "query"></td>
+                <td>
+                    <input type="text" class = "answer">
+                </td>
+            </tr>
+        </table>
+        <input type = button onclick="makeProblem()" value="다시">
+        <span id = "score"></span>
+    </form>
+
+</body>
+</html>
